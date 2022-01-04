@@ -1,17 +1,17 @@
 package com.lms.dao;
 
-import com.lms.model.admin;
-import com.lms.model.emp_login;
+import com.lms.model.Admin;
+import com.lms.model.EmpLogin;
 
-public interface admindao {
-	public admin insert(admin o1);
+public interface AdminDao {
+	public Admin insert(Admin o1);
 
-	public boolean adminlogin(admin user);
+	public boolean adminlogin(Admin user);
 
-	public emp_login insertUser(emp_login e1);
+	public EmpLogin insertUser(EmpLogin e1);
 
-	public emp_login updateuser(emp_login e2);
+	public EmpLogin updateuser(EmpLogin e2);
 
-	public emp_login deleteuser(emp_login e3);
+	public EmpLogin deleteuser(EmpLogin e3);
 
 }

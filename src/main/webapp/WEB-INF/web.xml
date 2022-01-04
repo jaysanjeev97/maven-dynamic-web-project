@@ -4,31 +4,91 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>Servlet</display-name>
-		<servlet-name>Servlet</servlet-name>
-		<servlet-class>com.servlet.Servlet</servlet-class>
+		<display-name>EmployeeLoginServlet</display-name>
+		<servlet-name>EmployeeLoginServlet</servlet-name>
+		<servlet-class>com.lms.servlet.EmployeeLoginServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
-		<display-name>resister</display-name>
-		<servlet-name>resister</servlet-name>
-		<servlet-class>com.lms.controller.resister</servlet-class>
+		<display-name>AdminLoginServlet</display-name>
+		<servlet-name>AdminLoginServlet</servlet-name>
+		<servlet-class>com.lms.servlet.AdminLoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>LoginServlet</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.lms.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>InsertLeaveRequest</display-name>
+		<servlet-name>InsertLeaveRequest</servlet-name>
+		<servlet-class>com.lms.servlet.InsertLeaveRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UpdateLeaveRequest</display-name>
+		<servlet-name>UpdateLeaveRequest</servlet-name>
+		<servlet-class>com.lms.servlet.UpdateLeaveRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DeleteLeaveRequest</display-name>
+		<servlet-name>DeleteLeaveRequest</servlet-name>
+		<servlet-class>com.lms.servlet.DeleteLeaveRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ShowLeaveBalance</display-name>
+		<servlet-name>ShowLeaveBalance</servlet-name>
+		<servlet-class>com.lms.servlet.ShowLeaveBalance</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>TypeOfLeaveInsert</display-name>
+		<servlet-name>TypeOfLeaveInsert</servlet-name>
+		<servlet-class>com.lms.servlet.TypeOfLeaveInsert</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Servlet</servlet-name>
-		<url-pattern>/Servlet</url-pattern>
+		<servlet-name>EmployeeLoginServlet</servlet-name>
+		<url-pattern>/EmployeeLoginServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>resister</servlet-name>
-		<url-pattern>/resister</url-pattern>
+		<servlet-name>AdminLoginServlet</servlet-name>
+		<url-pattern>/AdminLoginServlet</url-pattern>
 	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>InsertLeaveRequest</servlet-name>
+		<url-pattern>/InsertLeaveRequest</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateLeaveRequest</servlet-name>
+		<url-pattern>/UpdateLeaveRequest</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteLeaveRequest</servlet-name>
+		<url-pattern>/DeleteLeaveRequest</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShowLeaveBalance</servlet-name>
+		<url-pattern>/ShowLeaveBalance</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TypeOfLeaveInsert</servlet-name>
+		<url-pattern>/TypeOfLeaveInsert</url-pattern>
+	</servlet-mapping>
+	
+	
 </web-app>

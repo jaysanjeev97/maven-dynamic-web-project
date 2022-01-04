@@ -1,6 +1,6 @@
 package com.lms.model;
 
-public class admin {
+public class Admin {
 
 	private  int manager_id;
 	private String manager_name;
@@ -40,11 +40,11 @@ public class admin {
 	public void setManager_department(String manager_department) {
 		this.manager_department = manager_department;
 	}
-	public admin() {
+	public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public admin(int manager_id, String manager_name, String manager_email, String manager_password,
+	public Admin(int manager_id, String manager_name, String manager_email, String manager_password,
 			String manager_department) {
 		super();
 		this.manager_id = manager_id;
@@ -53,7 +53,7 @@ public class admin {
 		this.manager_password = manager_password;
 		this.manager_department = manager_department;
 	}
-	public admin(int manager_id, String manager_password) {
+	public Admin(int manager_id, String manager_password) {
 		super();
 		this.manager_id = manager_id;
 		this.manager_password = manager_password;

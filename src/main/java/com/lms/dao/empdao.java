@@ -1,11 +1,11 @@
 package com.lms.dao;
 
-import com.lms.model.emp_login;
+import com.lms.model.EmpLogin;
 
-public interface empdao {
+public interface EmpDao {
 
-	public emp_login resister(emp_login log);
+	public EmpLogin resister(EmpLogin log);
 
-	public boolean login(emp_login user);
+	public boolean login(EmpLogin user);
 
 }

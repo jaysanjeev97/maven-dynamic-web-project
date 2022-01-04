@@ -1,8 +1,8 @@
 package com.lms.model;
 
-public class Showlevbal {
+public class ShowLevBal {
 	
-	private int lev;
+	
 	private int emp_id;
 	private int causal_lev;
 	private int medical_lev;
@@ -47,11 +47,11 @@ public class Showlevbal {
 	public void setPaid_lev(int paid_lev) {
 		this.paid_lev = paid_lev;
 	}
-	public Showlevbal() {
+	public ShowLevBal() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Showlevbal(int emp_id, int causal_lev, int medical_lev, int causal_lev_bal, int medi_lev_bal, int paid_lev) {
+	public ShowLevBal(int emp_id, int causal_lev, int medical_lev, int causal_lev_bal, int medi_lev_bal, int paid_lev) {
 		super();
 		this.emp_id = emp_id;
 		this.causal_lev = causal_lev;
@@ -60,7 +60,7 @@ public class Showlevbal {
 		this.medi_lev_bal = medi_lev_bal;
 		this.paid_lev = paid_lev;
 	}
-	public Showlevbal(int emp_id,  int causal_lev_bal, int medi_lev_bal, int paid_lev) {
+	public ShowLevBal(int emp_id,  int causal_lev_bal, int medi_lev_bal, int paid_lev) {
 		
 		this.emp_id = emp_id;
 		
@@ -69,18 +69,18 @@ public class Showlevbal {
 		this.paid_lev = paid_lev;
 	}
 	
-	public Showlevbal( int causal_lev,int emp_id ) {
+	public ShowLevBal( int causal_lev,int emp_id ) {
 		super();
 		this.emp_id = emp_id;
 		this.causal_lev = causal_lev;
 	}
-	public Showlevbal( int medical_lev,int emp_id , int medi_lev_bal) {
+	public ShowLevBal( int medical_lev,int emp_id , int medi_lev_bal) {
 		super();
 		this.emp_id = emp_id;
 		this.medical_lev = medical_lev;
 		this.medi_lev_bal = medi_lev_bal;
 	}
-	public Showlevbal(int emp_id, int causal_lev, int medical_lev, int medi_lev_bal, int paid_lev) {
+	public ShowLevBal(int emp_id, int causal_lev, int medical_lev, int medi_lev_bal, int paid_lev) {
 		super();
 		this.emp_id = emp_id;
 		this.causal_lev = causal_lev;
@@ -88,7 +88,7 @@ public class Showlevbal {
 		this.medi_lev_bal = medi_lev_bal;
 		this.paid_lev = paid_lev;
 	}
-	public Showlevbal(int emp_id) {
+	public ShowLevBal(int emp_id) {
 		super();
 		this.emp_id = emp_id;
 	}
