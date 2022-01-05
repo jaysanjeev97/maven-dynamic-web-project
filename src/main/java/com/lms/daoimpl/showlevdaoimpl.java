@@ -19,7 +19,7 @@ public class ShowLevDaoImpl implements ShowLevDao {
 
 		int CAUSAL_LEV_BAL = 10;
 		int MEDI_LEV_BAL = 10;
-		int PAID_LEV = 10;
+		int PAID_LEV = 0;
 
 		String insertQuery = "insert into leave_bal(emp_id,CAUSAL_LEV_BAL,MEDI_LEV_BAL,PAID_LEV) values(?,?,?,?)";
 		Connection con;
@@ -119,32 +119,34 @@ public class ShowLevDaoImpl implements ShowLevDao {
 		return balance;
 	}
 
-	public ShowLevBal showbal(ShowLevBal sh3) {
-		ShowLevBal balance = null;
+	public List<ShowLevBal> showbal() {
+		List<ShowLevBal> showlev=new ArrayList<ShowLevBal>();
+		ShowLevBal showlevba=null;
 
-		String query1 = "select * from LEAVE_BAL where emp_id=? ";
+		String query1 = "select * from LEAVE_BAL ";
 		Connection con;
 		try {
 			con = ConnectionUtil.getConnection();
-			PreparedStatement stmt = con.prepareStatement(query1);
-			stmt.setInt(1, sh3.getEmp_id());
-
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s\n", rs.getInt(1), rs.getInt(2), rs.getInt(3),
-						rs.getInt(4), rs.getInt(5), rs.getInt(6));
-				balance = new ShowLevBal(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5),
-						rs.getInt(6));
-				return balance;
-			}
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Statement pstmt = con.createStatement();
+			ResultSet rs = pstmt.executeQuery(query1);
+		while (rs.next()) {
+//				System.out.format("%-10s%-10s%-10s%-10s%-10s%-10s\n", rs.getInt(1), rs.getInt(2), rs.getInt(3),
+//						rs.getInt(4), rs.getInt(5), rs.getInt(6));
+			showlevba=new ShowLevBal(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6));
+			showlev.add(showlevba);
+				
+		}
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return balance;
+		catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return showlev;
 	}
 
+	
 }

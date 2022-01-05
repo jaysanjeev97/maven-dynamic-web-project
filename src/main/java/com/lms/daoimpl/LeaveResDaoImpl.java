@@ -95,14 +95,14 @@ public class LeaveResDaoImpl implements LeaveResDao {
 	}
 
 	// delete
-	public LeaveRes deleteuser(LeaveRes res) {
-		LeaveRes leave = new LeaveRes();
+	public  void deletestatus(int request_id ) {
+		
 		String insertQuery = "delete from leave_res where request_id=?";
 		Connection con;
 		try {
 			con = ConnectionUtil.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(insertQuery);
-			pstmt.setInt(1, res.getRequest_id());
+			pstmt.setInt(1, request_id);
 			int i = pstmt.executeUpdate();
 			System.out.println(i + "deleted");
 
@@ -113,7 +113,7 @@ public class LeaveResDaoImpl implements LeaveResDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return leave;
+		
 	}
 
 	public List<LeaveRes> showLevres() {
@@ -126,8 +126,8 @@ public class LeaveResDaoImpl implements LeaveResDao {
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(show);
 			while (rs.next()) {
-//				System.out.format("%-10s%-10s%-10s%-13s%-15s%-5s%-4s\n", rs.getInt(1), rs.getInt(2), rs.getString(3),
-//						rs.getDate(4), rs.getDate(5), rs.getInt(6), rs.getString(7));
+				//System.out.format("%-10s%-10s%-10s%-13s%-15s%-5s%-4s\n", rs.getInt(1), rs.getInt(2), rs.getString(3),
+					//	rs.getDate(4), rs.getDate(5), rs.getInt(6), rs.getString(7));
 				leave = new LeaveRes(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDate(4), rs.getDate(5),
 						rs.getInt(6), rs.getString(7));
 				leaveRequest.add(leave);
@@ -144,5 +144,7 @@ public class LeaveResDaoImpl implements LeaveResDao {
 		}
 		return leaveRequest;
 	}
+	
+	}
 
-}
+

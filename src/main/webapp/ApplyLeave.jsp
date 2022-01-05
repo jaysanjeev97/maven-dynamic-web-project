@@ -20,10 +20,11 @@ display:inline;
 <body>
 <h1>LEAVE MANAGEMENT SYSTEM </h1>
 <ul>
+<a href="ShowLeaveBalance.jsp"><li>Show Leave Balance</li></a>
 <a href="InsertLeaveRequest.jsp"><li> Leave Request Insert</li></a>
 <a href="UpdateLeaveRequest.jsp"><li> Leave Request Update</li></a>
 <a href="DeleteLeaveRequest.jsp"><li> Leave Request Delete</li></a>
-<a href="ShowLeaveBalance.jsp"><li>Show Leave Balance</li></a>
+
 
 </ul>
 

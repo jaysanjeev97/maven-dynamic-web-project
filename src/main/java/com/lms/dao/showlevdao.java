@@ -1,5 +1,8 @@
 package com.lms.dao;
 
+import java.sql.ResultSet;
+import java.util.List;
+
 import com.lms.model.ShowLevBal;
 
 public interface ShowLevDao {
@@ -8,6 +11,6 @@ public interface ShowLevDao {
 	public ShowLevBal updatebal(ShowLevBal shw);
 	public ShowLevBal updatebal1(ShowLevBal shw1);
 	public ShowLevBal updatebal2(ShowLevBal shw2);
-	public ShowLevBal showbal(ShowLevBal sh3);
+	public List<ShowLevBal>showbal();
 
 }

@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lms.daoimpl.EmpDaoImpl;
+import com.lms.daoimpl.AdminDaoImpl;
 import com.lms.model.EmpLogin;
 
 /**
- * Servlet implementation class resister
+ * Servlet implementation class AdminAddEmployee
  */
-@WebServlet("/Register")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/addnewemp")
+public class AdminAddEmployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterServlet() {
+    public AdminAddEmployee() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,17 +30,15 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		 String name=request.getParameter("fn");
-		 String department=request.getParameter("department");
+		String name=request.getParameter("name");
+		 String department=request.getParameter("dept");
 		 String email=request.getParameter("gmail");
 		 String password=request.getParameter("password");
-		 EmpLogin el=new EmpLogin(name,department,email,password);
-		 EmpDaoImpl edl=new EmpDaoImpl();
-		 edl.resister(el);
-		 response.sendRedirect("EmployeeLogin.jsp");
-		 
+		 EmpLogin emplog=new EmpLogin(name, department, email, password);
+		 AdminDaoImpl aemp=new AdminDaoImpl();
+		 aemp.insertUser(emplog);
+		 response.sendRedirect("RequestForm.jsp");
 	}
 
 	/**

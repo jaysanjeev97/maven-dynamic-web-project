@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lms.daoimpl.LeaveResDaoImpl;
-import com.lms.model.LeaveRes;
+import com.lms.daoimpl.AdminDaoImpl;
+import com.lms.model.EmpLogin;
 
 /**
- * Servlet implementation class DeleteLeaveRequest
+ * Servlet implementation class AdminDeleteEmployee
  */
-@WebServlet("/delete")
-public class DeleteLeaveRequest extends HttpServlet {
+@WebServlet("/empdelete")
+public class AdminDeleteEmployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteLeaveRequest() {
+    public AdminDeleteEmployee() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,12 +31,11 @@ public class DeleteLeaveRequest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		int id=Integer.parseInt(request.getParameter("requestid"));
-		LeaveRes levup=new LeaveRes(id);
-		LeaveResDaoImpl levdeldao=new LeaveResDaoImpl();
-		levdeldao.deleteuser(levup);
-		response.sendRedirect("ShowLeveBalance.jsp");
-		
+		int empdeleteid=Integer.parseInt(request.getParameter("empdelid"));
+		EmpLogin empdelin=new EmpLogin(empdeleteid);
+		AdminDaoImpl amdeldao=new AdminDaoImpl();
+		amdeldao.deleteuser(empdelin);
+		 response.sendRedirect("RequestForm.jsp");
 	}
 
 	/**

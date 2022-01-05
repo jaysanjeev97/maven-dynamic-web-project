@@ -19,7 +19,8 @@ Enter the paid leave<input type="number" name="lev"><br>
 <br>
  <button>submit</button>
  <button>reset</button>
-
+<a href="TypeOfLeaveInsert.jsp"><li>Type Of Leave Insert</li></a>
+<a href="BalanceOfleave.jsp"><li>Balance Of Leave</li></a>
 
 
 </form>

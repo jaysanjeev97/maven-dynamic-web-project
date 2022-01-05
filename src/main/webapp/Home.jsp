@@ -20,7 +20,7 @@ display:inline;
 <ul>
 <a href="AdminLogin.jsp"><li>admin login</li></a>
 <a href="Register.jsp"><li>employee register</li></a>
-<a href="EmployeeLogin.jsp"><li>employee login</li></a>
+<a href="EmployeeLogin.jsp"><li>employee login</li></a>		
 </ul>
 
 

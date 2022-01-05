@@ -57,6 +57,62 @@
 		<servlet-name>TypeOfLeaveInsert</servlet-name>
 		<servlet-class>com.lms.servlet.TypeOfLeaveInsert</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminUpdateLeaveRequest</display-name>
+		<servlet-name>AdminUpdateLeaveRequest</servlet-name>
+		<servlet-class>com.lms.servlet.AdminUpdateLeaveRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminDeleteLeaveRequest</display-name>
+		<servlet-name>AdminDeleteLeaveRequest</servlet-name>
+		<servlet-class>com.lms.servlet.AdminDeleteLeaveRequest</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ShowLeaveBal</display-name>
+		<servlet-name>ShowLeaveBal</servlet-name>
+		<servlet-class>com.lms.servlet.ShowLeaveBal</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ShowLeaveBal1</display-name>
+		<servlet-name>ShowLeaveBal1</servlet-name>
+		<servlet-class>com.lms.servlet.ShowLeaveBal1</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ShowLeaveBal2</display-name>
+		<servlet-name>ShowLeaveBal2</servlet-name>
+		<servlet-class>com.lms.servlet.ShowLeaveBal2</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminAddEmployee</display-name>
+		<servlet-name>AdminAddEmployee</servlet-name>
+		<servlet-class>com.lms.servlet.AdminAddEmployee</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminUpdateEmployee</display-name>
+		<servlet-name>AdminUpdateEmployee</servlet-name>
+		<servlet-class>com.lms.servlet.AdminUpdateEmployee</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminDeleteEmployee</display-name>
+		<servlet-name>AdminDeleteEmployee</servlet-name>
+		<servlet-class>com.lms.servlet.AdminDeleteEmployee</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>EmployeeLoginServlet</servlet-name>
 		<url-pattern>/EmployeeLoginServlet</url-pattern>
@@ -88,6 +144,38 @@
 	<servlet-mapping>
 		<servlet-name>TypeOfLeaveInsert</servlet-name>
 		<url-pattern>/TypeOfLeaveInsert</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminUpdateLeaveRequest</servlet-name>
+		<url-pattern>/AdminUpdateLeaveRequest</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminDeleteLeaveRequest</servlet-name>
+		<url-pattern>/AdminDeleteLeaveRequest</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShowLeaveBal</servlet-name>
+		<url-pattern>/ShowLeaveBal</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShowLeaveBal1</servlet-name>
+		<url-pattern>/ShowLeaveBal1</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShowLeaveBal2</servlet-name>
+		<url-pattern>/ShowLeaveBal2</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminAddEmployee</servlet-name>
+		<url-pattern>/AdminAddEmployee</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminUpdateEmployee</servlet-name>
+		<url-pattern>/AdminUpdateEmployee</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminDeleteEmployee</servlet-name>
+		<url-pattern>/AdminDeleteEmployee</url-pattern>
 	</servlet-mapping>
 	
 	
