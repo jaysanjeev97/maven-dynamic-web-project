@@ -11,8 +11,9 @@
 <form action="empdelete" method="get">
 Enter Employee id:<input type="number" name="empdelid"><br>
 <br>
-</form>
-<button>submit</button>
 
+<button type="sumbit">submit</button>
+<button type="reset">reset</button>
+</form>
 </body>
 </html>

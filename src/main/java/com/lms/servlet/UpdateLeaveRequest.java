@@ -19,35 +19,25 @@ import com.lms.model.LeaveRes;
  */
 @WebServlet("/update")
 public class UpdateLeaveRequest extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UpdateLeaveRequest() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-       SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+	
+       SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		
-		int eid=Integer.parseInt(request.getParameter("empid"));
+		int eid=Integer.parseInt(request.getParameter("id"));
+		System.out.println(eid);
 		String datestr=request.getParameter("upfromdate");
 		Date edt = null;
 		try {
+			System.out.println("pothi");
 			edt = sdf.parse(datestr);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		String datestr1=request.getParameter("uptodate");
+		String datestr1=request.getParameter("todate");
 		Date edt1 = null;
 		try {
 			edt1 = sdf.parse(datestr1);
@@ -59,16 +49,15 @@ public class UpdateLeaveRequest extends HttpServlet {
 		int nof=Integer.parseInt(request.getParameter("nofdays"));
 		LeaveRes levup=new LeaveRes(eid, edt, edt1, nof);
 		LeaveResDaoImpl levupdao=new LeaveResDaoImpl();
+		System.out.println(levup);
+		System.out.println();
 		levupdao.updatelev(levup);
-		response.sendRedirect("ShowLeveBalance.jsp");
+		response.sendRedirect("ApplyLeave.jsp");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+
 
 }

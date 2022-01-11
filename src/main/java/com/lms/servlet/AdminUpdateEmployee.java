@@ -30,11 +30,12 @@ public class AdminUpdateEmployee extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("updated");
-		int empupdateid=Integer.parseInt(request.getParameter("empupid"));
 		String dept=request.getParameter("depart");
-		EmpLogin empupin=new EmpLogin(empupdateid, dept);
+		int empupdateid=Integer.parseInt(request.getParameter("empupid"));
+	
+		EmpLogin empupin=new EmpLogin( dept,empupdateid);
 		AdminDaoImpl amupdao=new AdminDaoImpl();
 		amupdao.updateuser(empupin);
 		 response.sendRedirect("RequestForm.jsp");

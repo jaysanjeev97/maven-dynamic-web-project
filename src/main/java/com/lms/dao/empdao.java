@@ -1,11 +1,13 @@
 package com.lms.dao;
 
+import java.sql.ResultSet;
+
 import com.lms.model.EmpLogin;
 
 public interface EmpDao {
 
 	public EmpLogin resister(EmpLogin log);
 
-	public boolean login(EmpLogin user);
+	public ResultSet validateLogin(EmpLogin user);
 
 }

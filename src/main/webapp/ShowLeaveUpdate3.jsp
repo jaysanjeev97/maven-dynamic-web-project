@@ -12,7 +12,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-
 <style>
 .h1{
 margin-top:30px;
@@ -48,29 +47,25 @@ background:#F5F5DC;
 </style>
 </head>
 <body>
-<%int empid=(int)session.getAttribute("empid"); %>
 <div class="h1">
 <center><h1 class="bg-dark text-white"> LEAVE MANAGEMENT SYSTEM </h1></center>
 </div>
 <div class="container">
 <div class="h3">
-<h2>Paid Leave Insert</h2>
+<h2>Show Leave Insert</h2>
 </div>
-<form action="paidlev" method="get">
+<form action="addlev" method="get">
 <div class="forms">
 <div class="cas">
 
-Enter paid leave:<input type="number" name="paid"><br>
+Enter employee id:<input type="number" name="id"><br>
 <br>
 </div>
-<input style="visibility: hidden;" type="number" name="id2" value="<%=empid%>"><br>
-<br>
 <div class="but">
 <button type="button" class="btn btn-info">submit</button>
 </div>
 </div>
 </div>
 </form>
-
 </body>
 </html>

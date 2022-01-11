@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lms.daoimpl.ShowLevDaoImpl;
-import com.lms.model.ShowLevBal;
+import com.lms.daoimpl.EmpDaoImpl;
+import com.lms.model.EmpLogin;
 
 /**
- * Servlet implementation class ShowLeaveBal
+ * Servlet implementation class EmployeeAddServlet
  */
-@WebServlet("/caslev1")
-public class ShowLeaveBal extends HttpServlet {
+@WebServlet("/addlev")
+public class ShowLeaveUpdate3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowLeaveBal() {
+    public ShowLeaveUpdate3() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,14 +30,12 @@ public class ShowLeaveBal extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		int csl=Integer.parseInt(request.getParameter("casual"));
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		int empid=Integer.parseInt(request.getParameter("id"));
-		ShowLevBal sbal=new ShowLevBal(csl, empid);
-		ShowLevDaoImpl sdao=new ShowLevDaoImpl();
-		sdao.updatebal(sbal);
+		EmpLogin el=new EmpLogin(empid);
+		EmpDaoImpl edi=new EmpDaoImpl();
+		edi.addleave(el);
 		response.sendRedirect("ShowLeaveBalanceEmployee.jsp");
-		
 	}
 
 	/**

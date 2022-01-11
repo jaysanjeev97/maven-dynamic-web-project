@@ -44,23 +44,24 @@ public class AdminDaoImpl implements AdminDao {
 		return admin;
 	}
 
-	public boolean adminlogin(Admin user) {
-
-		String insertQuery1 = "select * from LMS_EMPLOYEE where manager_id=? and manager_password=?";
-
+	public ResultSet validateAdminlogin(Admin user) {
+		Admin admin=null;
+		String insertQuery1 = "select * from LMS_admin where manager_id=? and manager_password=?";
+		ResultSet rs=null;
 		Connection con;
 		try {
 			con = ConnectionUtil.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(insertQuery1);
-
+System.out.println(user.getManager_id() + user.getManager_password());
 			pstmt.setInt(1, user.getManager_id());
 			pstmt.setString(2, user.getManager_password());
 
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-
-				return true;
-			}
+			rs = pstmt.executeQuery();
+//			while (rs.next()) {
+//				admin=new Admin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+//				
+//			}
+//			return admin;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,9 +70,9 @@ public class AdminDaoImpl implements AdminDao {
 			e.printStackTrace();
 		}
 
-		{
-			return false;
-		}
+		
+			return rs;
+		
 	}
 
 	// insert:
@@ -147,7 +148,33 @@ public class AdminDaoImpl implements AdminDao {
 		return login;
 
 	}
-	
-	
+
+	// show
+	public List<EmpLogin> showEmployee() {
+		List<EmpLogin> emplogin = new ArrayList<EmpLogin>();
+		EmpLogin emplog = null;
+		String empshow = "select*from LMS_EMPLOYEE";
+		Connection con;
+		try {
+			con = ConnectionUtil.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(empshow);
+			while (rs.next()) {
+				emplog = new EmpLogin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6));
+				emplogin.add(emplog);
+			}
+			return emplogin;
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return emplogin;
+
+	}
 
 }

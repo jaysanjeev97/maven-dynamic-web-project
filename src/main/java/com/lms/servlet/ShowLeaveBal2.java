@@ -32,11 +32,11 @@ public class ShowLeaveBal2 extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		int paid=Integer.parseInt(request.getParameter("paid"));
-		int id=Integer.parseInt(request.getParameter("id2"));
-		ShowLevBal sbal2=new ShowLevBal(id, 0, 0, paid);
+		int empid=Integer.parseInt(request.getParameter("id2"));
+		ShowLevBal sbal2=new ShowLevBal(empid, 0, 0, paid);
 		ShowLevDaoImpl sdao2=new ShowLevDaoImpl();
 		sdao2.updatebal2(sbal2);
-		response.sendRedirect("ShowLeaveBalance.jsp");
+		response.sendRedirect("ShowLeaveBalanceEmployee.jsp");
 	}
 
 	/**

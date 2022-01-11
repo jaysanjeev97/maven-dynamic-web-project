@@ -35,9 +35,10 @@ public class InsertLeaveRequest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		
-		int id=Integer.parseInt(request.getParameter("id"));
+		//int id=Integer.parseInt(request.getParameter("id"));
+		int empid=Integer.parseInt(request.getParameter("id"));
 		String reason=request.getParameter("reason");
 		String datestr=request.getParameter("fromdate");
 		Date dt = null;
@@ -58,11 +59,11 @@ public class InsertLeaveRequest extends HttpServlet {
 		}
 	
 		int no=Integer.parseInt(request.getParameter("days"));
-		LeaveRes lev=new LeaveRes(id, reason, dt, dt1, no);
+		LeaveRes lev=new LeaveRes(empid, reason, dt, dt1, no);
 		LeaveResDaoImpl levda=new LeaveResDaoImpl ();
 		levda.applyLeave(lev);
 		
-		response.sendRedirect("ShowLeaveBalance.jsp");
+		response.sendRedirect("ApplyLeave.jsp");
 		
 		
 	}

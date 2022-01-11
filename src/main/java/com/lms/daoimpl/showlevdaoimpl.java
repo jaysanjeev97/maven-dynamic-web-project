@@ -48,7 +48,8 @@ public class ShowLevDaoImpl implements ShowLevDao {
 
 		// String query = "update leave_bal set causal_lev_bal=(SELECT causal_lev_bal
 		// from leave_bal where emp_id=? )+ where emp_id=?";
-		String query = "update leave_bal set causal_lev_bal=causal_lev - ? where emp_id=?";
+		
+		String query = "update leave_bal set causal_lev_bal=causal_lev_bal - ? where emp_id=?";
 		Connection con;
 		try {
 			con = ConnectionUtil.getConnection();
@@ -73,7 +74,7 @@ public class ShowLevDaoImpl implements ShowLevDao {
 
 		// String query = "update leave_bal set causal_lev_bal=(SELECT causal_lev_bal
 		// from leave_bal where emp_id=? )+ where emp_id=?";
-		String query = "update leave_bal set medi_lev_bal=medical_lev - ? where emp_id=?";
+		String query = "update leave_bal set medi_lev_bal=medi_lev_bal - ? where emp_id=?";
 		Connection con;
 		try {
 			con = ConnectionUtil.getConnection();
@@ -147,6 +148,38 @@ public class ShowLevDaoImpl implements ShowLevDao {
 		}
 		return showlev;
 	}
+	
+	
+	public List<ShowLevBal> checkbalance(ShowLevBal sh) {
+		List<ShowLevBal> clev=new ArrayList<ShowLevBal>();
+		ShowLevBal clevba=null;
+
+		String query1 = "select * from LEAVE_BAL WHERE EMP_ID= "+sh.getEmp_id();
+		Connection con;
+		try {
+			con = ConnectionUtil.getConnection();
+			Statement pstmt = con.createStatement();
+			ResultSet rs = pstmt.executeQuery(query1);
+		while (rs.next()) {
+
+			clevba=new ShowLevBal(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6));
+			clev.add(clevba);
+				
+		}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return clev ;
+	}
+	
+		
+	}
 
 	
-}
+

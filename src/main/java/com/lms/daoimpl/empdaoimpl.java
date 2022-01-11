@@ -41,22 +41,23 @@ public class EmpDaoImpl implements EmpDao {
 		return login;
 	}
 
-	public boolean login(EmpLogin user) {
-
-		String insertQuery2 = "select * from LMS_EMPLOYEE where emp_name=? and emp_password=?";
-
+	public ResultSet validateLogin(EmpLogin user) {
+		
+        ResultSet rs=null;
+        String insertQuery2 = "select * from LMS_EMPLOYEE where emp_name=? and emp_password=?";
+		
 		Connection con;
 		try {
 			con = ConnectionUtil.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(insertQuery2);
+			
+			
 
 			pstmt.setString(1, user.getEmp_name());
 			pstmt.setString(2, user.getEmp_password());
 
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-				return true;
-			}
+			 rs = pstmt.executeQuery();
+			
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -66,36 +67,29 @@ public class EmpDaoImpl implements EmpDao {
 			e.printStackTrace();
 		}
 
-		return false;
+		return rs;
 		
 	}
-	//show
-		public List<EmpLogin> showEmployee(){
-			List< EmpLogin> emplogin=new ArrayList<EmpLogin>();
-			EmpLogin emplog=null;
-			String empshow="select*from LMS_EMPLOYEE";
-			Connection con;
-			try {
-				con = ConnectionUtil.getConnection();
-				Statement stmt= con.createStatement();
-				ResultSet rs = stmt.executeQuery(empshow);
-				while(rs.next()) {
-					emplog=new EmpLogin(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
-					emplogin.add(emplog);
-				}
-				return emplogin;
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-			
-			
-			return emplogin;
-			
-		}
+	public void addleave(EmpLogin log) {
 
+		//EmpLogin login = new EmpLogin();
+		String insertQuery = "insert into leave_bal(emp_id)values(?)";
+
+		Connection con;
+		try {
+			con = ConnectionUtil.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(insertQuery);
+
+			pstmt.setInt(1, log.getEmp_id());
+			
+			int i = pstmt.executeUpdate();
+			System.out.println(i + "inserted");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}}
+		
 }

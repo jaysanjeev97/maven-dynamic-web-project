@@ -4,26 +4,91 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>IMS PROJECT</title>
+<style>
+
+body {
+
+	background: linear-gradient(#DAD299, #b0dab9);
+}
+
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+
+input[type=text],input[type=text],input[type=text], input[type=password] {
+  width: 21%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 21%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+
+
+.container {
+  padding: 16px;
+}
+
+p {
+  margin: 50px 50px;
+}
+
+
+
+
+</style>
+
 </head>
 <body>
- <div style="text-align: center;">
-<h3>RESISTER USER</h3>
-    <form action="Register">
-       NAME: <input type="text" name="fn"pattern="[A-Za-z]{3,}"					
-            title="minimum 3 characters should be there."placeholder="Enter your nickname" required><br>
-        <br>
-       DEPARTMENT:<input type="text" name ="department" pattern="[A-Za-z]{4,}" title="minimum 4 characters should be there." ><br>
-       <br>
-      GMAIL:  <input type="gmail" name="gmail" pattern="[a-z0-9]+[@][a-zA-Z]+[.][a-z]+"					
-            title="You have to insert @ and . in the username ex.abc@gmail.com"placeholder="xyz@gmail.com"><br>
-        <br>
-       PASSWORD: <input type="password" name="password"  pattern="[A-Za-z0-9]+[@][A-za-z0-9]*" title="must be provide 8 characters and use some special characters for safty purpose"><br>
-        <br>
-        <button>submit</button>
-        <button>reset</button>
-         
-       </form>
-       </div>
+<p>
+<div style="text-align: center;">
+<h3> REGISTER</h3>
 	
+ <form action="Register" method="get">
+
+    <div class="container">
+    <label for="uname"><b>Name</b></label><br>
+    <input type="text" name="fn" placeholder="Enter Your Name" pattern="[A-Za-z]{3,}" required><br>
+    
+    <label for="email"><b>Gmail</b></label><br>
+    <input type="text" name="gmail" placeholder="Enter Your Gmail" pattern="[a-z]+[a-z0-9]*[@][a-z]+[.][a-z]{2,}" required><br>
+    <label for="uname"><b>Department</b></label><br>
+    <input type="text" name="department" placeholder="Enter Your Department " pattern="[A-Za-z]{3,}" required><br>
+    <label for="psw"><b> Password</b></label><br>
+    <input type= "password" name="password" placeholder="Enter Your Password" pattern="[A-Za-z0-9]+[@][A-za-z0-9]*" title="must be provide 6 characters and use some special characters for safty purpose" required><br>
+
+    
+
+       
+    <button type="submit">Register</button>
+    
+  </div>
+
+  
+</form>
+</div>
+</P>        
 </body>
 </html>

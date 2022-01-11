@@ -1,9 +1,8 @@
-s<%@page import="com.lms.model.ShowLevBal"%>
+<%@page import="com.lms.model.ShowLevBal"%>
 <%@page import="java.util.List"%>
+<%@page import="com.lms.daoimpl.ShowLevDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@ page import="java.sql.ResultSet"
- import ="com.lms.daoimpl.*" %>       
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +10,18 @@ s<%@page import="com.lms.model.ShowLevBal"%>
 <title>LMS PROJECT</title>
 </head>
 <body>
+
 <center><h1> LEAVE MANAGEMENT SYSTEM </h1></center>
+
+<form action="CheckLeaveEmployee.jsp">
+<input type="text" name="emp_id" pattern="[0-9]{4,8}" requried >
+<button type="submit" ></button>
+</form>
 <form action="show" method="get">
 <% 
-ShowLevDaoImpl showlevbalance= new ShowLevDaoImpl();
-List<ShowLevBal> showbal=showlevbalance.showbal() ;
+ShowLevDaoImpl showlevbalancead= new ShowLevDaoImpl();
+List<ShowLevBal> showbal=showlevbalancead.showbal() ;
+
 %>
 <br>
  <center><table border="1" cellspacing=0px; cellpadding=20px; style="width: 600px; height:5px;">
@@ -33,7 +39,7 @@ List<ShowLevBal> showbal=showlevbalance.showbal() ;
 
 int count=0;
 for(ShowLevBal sh:showbal){
-
+	
  %>
  <tbody>
           <tr>
@@ -51,10 +57,9 @@ for(ShowLevBal sh:showbal){
      
       </table></center>
       
+      
 </form>      
-<a href="ShowLeaveUpdate.jsp"><button type="sumbit">Update Casual Leave </button></a>
-<a href="ShowLeaveUpdate1.jsp"><button type="sumbit">Update Medical Leave </button></a>
-<a href="ShowLeaveUpdate2.jsp"><button type="sumbit">Update paid Leave </button></a>
 
+<!-- <a href="CheckLeaveEmployee.jsp"><button type="sumbit">CheckLeaveEmployee</button></a> -->
 </body>
 </html>

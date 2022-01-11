@@ -3,11 +3,13 @@ package com.lms.servlet;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.daoimpl.ShowLevDaoImpl;
+
 import com.lms.model.ShowLevBal;
 
 /**
@@ -32,11 +34,11 @@ public class ShowLeaveBal1 extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		int mel=Integer.parseInt(request.getParameter("medical"));
-		int id=Integer.parseInt(request.getParameter("id1"));
-		ShowLevBal sbal1=new ShowLevBal(mel, id, 0);
+		int empid=Integer.parseInt(request.getParameter("id1"));
+		ShowLevBal sbal1=new ShowLevBal(mel, empid, 0);
 		ShowLevDaoImpl sdao1=new ShowLevDaoImpl();
 		sdao1.updatebal1(sbal1);
-		response.sendRedirect("ShowLeaveBalance.jsp");
+		response.sendRedirect("ShowLeaveBalanceEmployee.jsp");
 		
 	}
 

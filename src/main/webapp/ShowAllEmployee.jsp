@@ -1,3 +1,5 @@
+<%@page import="com.lms.daoimpl.AdminDaoImpl"%>
+<%@page import="com.lms.daoimpl.EmpDaoImpl"%>
 <%@page import="java.util.List"%>
 <%@page import="  com.lms.model.*"%>
 
@@ -7,21 +9,63 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <meta charset="ISO-8859-1">
 <title>LMS PROJECT</title>
+<style>
+body{
+background:#DAD299;
+
+}
+.btn
+{
+
+ margin-left: 350px;
+margin-top: -27px ;
+}
+.btn1
+{
+margin-left: 550px;
+margin-top: -35px ;
+}
+.btn2
+{
+margin-left: 750px;
+margin-top: -22px ;
+}
+table{
+margin-top: 20px ;
+    margin-left: 20px;
+    text-align: center;
+}
+
+</style>
 </head>
 <body>
 <h3>Show All Employee</h3>
 <form action="employee" method="get">
 <%
-EmpDaoImpl employ=new EmpDaoImpl ();
+AdminDaoImpl employ=new AdminDaoImpl ();
 %>
 <% 
 List<EmpLogin> log=employ.showEmployee();
   
 %>
 <br>
-<center><table border="1" cellspacing=0px; cellpadding=20px; style="width:80%; height:5px;text-align:center;">
+<div class="btn">
+    <a href="AdminAddEmployee.jsp"><button type="button" class="btn btn-primary"> Add Employee</button></a>
+    </div>
+   <div class="btn1">
+    <a href="AdminUpdateEmployee.jsp"><button type="button" class="btn btn-primary">Update Employee</button></a>
+</div>
+   <div class="btn2">
+    <a href="AdminDeleteEmployee.jsp"><button type="button" class="btn btn-primary"> Delete Employee</button></a>
+    </div>
+<div class="container">
+<table class="table table-bordered"">
 
 <tr>
 
@@ -30,13 +74,14 @@ List<EmpLogin> log=employ.showEmployee();
 <th>emp_department</th>
 <th>emp_email</th>
 <th>emp_password</th>
+<th>users_type</th>
 
 </tr>
 
 <% 
 
 int count=0;
-for(EmpLogin em:employ){
+for(EmpLogin em:log){
 %>
 
 
@@ -49,14 +94,20 @@ for(EmpLogin em:employ){
             <td><%=em.getEmp_department()%></td>
             <td><%=em.getEmp_email()%></td>
             <td><%=em.getEmp_password()%></td>
+            <td><%=em.getUsers_type() %></td>
             
            </tr>
            
      </tbody>
      
       <%} %>
-       </table></center>
+       </table>
+       
 </form>
+<!-- <a href="AdminAddEmployee.jsp"><button type ="sumbit">Add New Employee</button></a>
+<a href="AdminUpdateEmployee.jsp"><button type ="sumbit">Update New Employee</button></a>
+<a href="AdminDeleteEmployee.jsp"><button type ="sumbit">Delete New Employee</button></a>
+ -->
 
 </body>
 </html>

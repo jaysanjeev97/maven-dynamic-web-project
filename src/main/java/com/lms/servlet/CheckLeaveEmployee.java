@@ -7,20 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lms.daoimpl.EmpDaoImpl;
 import com.lms.daoimpl.ShowLevDaoImpl;
+import com.lms.model.EmpLogin;
 import com.lms.model.ShowLevBal;
 
 /**
- * Servlet implementation class ShowLeaveBal
+ * Servlet implementation class CheckLeaveEmployee
  */
-@WebServlet("/caslev1")
-public class ShowLeaveBal extends HttpServlet {
+@WebServlet("/checklevbal")
+public class CheckLeaveEmployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowLeaveBal() {
+    public CheckLeaveEmployee() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,14 +32,12 @@ public class ShowLeaveBal extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		int csl=Integer.parseInt(request.getParameter("casual"));
-		int empid=Integer.parseInt(request.getParameter("id"));
-		ShowLevBal sbal=new ShowLevBal(csl, empid);
-		ShowLevDaoImpl sdao=new ShowLevDaoImpl();
-		sdao.updatebal(sbal);
-		response.sendRedirect("ShowLeaveBalanceEmployee.jsp");
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int employeeid=Integer.parseInt(request.getParameter("cid"));
+		ShowLevBal sh=new ShowLevBal(employeeid);
+		ShowLevDaoImpl cklev=new ShowLevDaoImpl() ;
+		cklev.checkbalance(sh);
+		response.sendRedirect("CheckLeaveEmployee.jsp");
 	}
 
 	/**

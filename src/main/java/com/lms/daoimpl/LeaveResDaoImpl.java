@@ -53,6 +53,8 @@ public class LeaveResDaoImpl implements LeaveResDao {
 			con = ConnectionUtil.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(insertQuery);
 			pstmt.setDate(1, new java.sql.Date(resq.getFrom_date().getTime()));
+		
+
 			pstmt.setDate(2, new java.sql.Date(resq.getTo_date().getTime()));
 			pstmt.setInt(3, resq.getNo_ofdays());
 			pstmt.setInt(4, resq.getEmp_id());

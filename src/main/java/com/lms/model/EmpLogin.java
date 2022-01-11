@@ -7,7 +7,16 @@ public class EmpLogin {
 	private String emp_department;
 	private String emp_email;
 	private String emp_password;
+	private String users_type;
 	
+	
+	
+	public String getUsers_type() {
+		return users_type;
+	}
+	public void setUsers_type(String users_type) {
+		this.users_type = users_type;
+	}
 	public int getEmp_id() {
 		return emp_id;
 	}
@@ -54,7 +63,7 @@ public class EmpLogin {
 		this.emp_name = emp_name;
 		this.emp_password = emp_password;
 	}
-	public EmpLogin(int emp_id, String emp_department) {
+	public EmpLogin(String emp_department,int emp_id ) {
 		super();
 		this.emp_id = emp_id;
 		this.emp_department = emp_department;
@@ -63,6 +72,17 @@ public class EmpLogin {
 		super();
 		this.emp_id = emp_id;
 	}
+	public EmpLogin(int emp_id, String emp_name, String emp_department, String emp_email, String emp_password,
+			String users_type) {
+		super();
+		this.emp_id = emp_id;
+		this.emp_name = emp_name;
+		this.emp_department = emp_department;
+		this.emp_email = emp_email;
+		this.emp_password = emp_password;
+		this.users_type = users_type;
+	}
+	
 	
 }
 	

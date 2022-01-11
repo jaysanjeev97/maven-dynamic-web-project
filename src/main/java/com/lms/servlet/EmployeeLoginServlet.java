@@ -1,11 +1,15 @@
 package com.lms.servlet;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.lms.daoimpl.EmpDaoImpl;
 import com.lms.model.EmpLogin;
@@ -30,13 +34,37 @@ public class EmployeeLoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session=request.getSession();
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		 String name=request.getParameter("empname");
 		String password=request.getParameter("password");
 		EmpLogin emplog=new EmpLogin(name,password);
 		EmpDaoImpl empdao=new EmpDaoImpl();
-		empdao.login(emplog);
-		response.sendRedirect("ApplyLeave.jsp");
+		ResultSet rs =empdao.validateLogin(emplog);
+		try {
+			rs.next();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			int empid=rs.getInt(1);
+			System.out.println(empid);
+			session.setAttribute("empid", empid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}try {
+			if(rs.getString(2).equals(name)&&(rs.getString(5).equals(password))) {
+				response.sendRedirect("ApplyLeave.jsp");
+			}else {
+				response.getWriter().println("invalid username or password");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**
